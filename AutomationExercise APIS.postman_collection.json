@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "8c72d25f-6181-4e37-9372-d13de459a7b9",
+		"name": "AutomationExercise APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25664496"
+	},
+	"item": [
+		{
+			"name": "All Products List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/productsList",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "To all products list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response code passed\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.responseCode).to.eql(405);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/productsList",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All brands list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/brandsList",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"brandsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "To all brands list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code passed\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.responseCode).to.eql(405);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/brandsList",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"brandsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/searchProduct?search_product=top",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"searchProduct"
+					],
+					"query": [
+						{
+							"key": "search_product",
+							"value": "top"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search without parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code is correct\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.responseCode).to.eql(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/searchProduct",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"searchProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valid login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/verifyLogin?email=habeba@gmail.com&password=Habiba@2002",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "habeba@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "Habiba@2002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code is correct\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.responseCode).to.eql(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/verifyLogin",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login without email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/verifyLogin?password=Habiba@2002",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "Habiba@2002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete to verify login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response code is correct\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.responseCode).to.eql(405);\r",
+							"});\r",
+							"pm.test(\"Response message is as expected\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"This request method is not supported.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/verifyLogin",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid login2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code is as expecteds\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.responseCode).to.eql(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/verifyLogin?email=haneen@gmail.com&password=Habiba@2002",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "haneen@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "Habiba@2002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"habiba\",\r\n  \"email\":\"habibahabiba@gmail.com\",\r\n  \"password\":\"Habiba@@002\",\r\n  \"title\":\"Miss\",\r\n  \"birth_date\":12,\r\n  \"birth_month\":12,\r\n  \"birth_year\":2002,\r\n  \"firstname\":\"habiba\",\r\n  \"lastname\":\"hanafi\",\r\n  \"company\":\"company\",\r\n  \"address1\":\"add\",\r\n  \"address2\":\"add\",\r\n  \"country\":\"India\",\r\n  \"zipcode\":\"11111\",\r\n  \"state\":\"ss\",\r\n  \"city\":\"ss\",\r\n  \"mobile_number\":\"001010101\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/createAccount",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"habeba@2002\",\r\n    \"password\": \"Habiba@2002\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/deleteAccount?email=habeba@2002&password=Habiba@2002",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"deleteAccount"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "habeba@2002"
+						},
+						{
+							"key": "password",
+							"value": "Habiba@2002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"habiba update\",\r\n  \"email\":\"habibahabiba@gmail.com\",\r\n  \"password\":\"Habiba@@002\",\r\n  \"title\":\"Miss\",\r\n  \"birth_date\":12,\r\n  \"birth_month\":12,\r\n  \"birth_year\":2002,\r\n  \"firstname\":\"habiba\",\r\n  \"lastname\":\"hanafi\",\r\n  \"company\":\"company\",\r\n  \"address1\":\"add\",\r\n  \"address2\":\"add\",\r\n  \"country\":\"India\",\r\n  \"zipcode\":\"11111\",\r\n  \"state\":\"ss\",\r\n  \"city\":\"ss\",\r\n  \"mobile_number\":\"001010101\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/updateAccount",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"updateAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user details by email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"habeba@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/getUserDetailByEmail",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"getUserDetailByEmail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
